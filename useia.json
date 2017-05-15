@@ -25,7 +25,7 @@
 		"/category": {
 			"get": {
 				"description": "Category",
-				"operationId": "http://api.eia.gov/category?api_key=9a18cebe3a7a99c6f506c3a316883a21&category_id=1&out=json",
+				"operationId": "http://api.eia.gov/category",
 				"produces": [
 					"application/json",
 					"application/xml"
@@ -57,7 +57,7 @@
 		"/updates": {
 			"get": {
 				"description": "Updates",
-				"operationId": "http://api.eia.gov/updates?api_key=9a18cebe3a7a99c6f506c3a316883a21&category_id=0&deep=true&firstrow=1&rows=200&out=json",
+				"operationId": "http://api.eia.gov/updates",
 				"produces": [
 					"application/json",
 					"application/xml"
@@ -112,7 +112,7 @@
 		"/series": {
 			"get": {
 				"description": "Series",
-				"operationId": "http://api.eia.gov/series?api_key=9a18cebe3a7a99c6f506c3a316883a21&series_id=ELEC.GEN.ALL-AK-99.A&start=2010&end=2016&out=json",
+				"operationId": "http://api.eia.gov/series",
 				"produces": [
 					"application/json",
 					"application/xml"
@@ -159,7 +159,7 @@
 		"/series/categories": {
 			"get": {
 				"description": "Series Categories",
-				"operationId": "http://api.eia.gov/series/categories?api_key=9a18cebe3a7a99c6f506c3a316883a21&series_id=ELEC.GEN.ALL-AK-99.A&out=json",
+				"operationId": "http://api.eia.gov/series/categories",
 				"produces": [
 					"application/json",
 					"application/xml"
