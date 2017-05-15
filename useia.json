@@ -1,0 +1,191 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0",
+		"title": "U.S.Energy Information Administration Swagger",
+		"description": "U.S.Energy Information Administration API services",
+		"license": {
+			"name": "MIT",
+			"url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+		}
+	},
+	"host": "api.eia.gov",
+	"basePath": "",
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json",
+		"application/xml"
+	],
+	"paths": {
+		"/category": {
+			"get": {
+				"description": "Category",
+				"operationId": "http://api.eia.gov/category?api_key=9a18cebe3a7a99c6f506c3a316883a21&category_id=1&out=json",
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "The API Key, required to make API requests to U.S. EIA API services.",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "category_id",
+						"in": "query",
+						"description": "Optional. Category ID is a unique numeric identifier of a category. If left blank the root category is fetched from the API, additional queries can be made using category IDs returned from this API call.",
+						"required": false,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			}
+		},
+		"/updates": {
+			"get": {
+				"description": "Updates",
+				"operationId": "http://api.eia.gov/updates?api_key=9a18cebe3a7a99c6f506c3a316883a21&category_id=0&deep=true&firstrow=1&rows=200&out=json",
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "The API Key, required to make API requests to U.S. EIA API services.",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "category_id",
+						"in": "query",
+						"description": "Optional. Category ID is a unique numeric identifier of a category. If left blank the root category is fetched from the API, additional queries can be made using category IDs returned from this API call.",
+						"required": false,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "deep",
+						"in": "query",
+						"description": "Optional. If true, include the series in all descendent categories. If missing or false, only series directly in the start category will be returned.",
+						"required": false,
+						"type": "boolean"
+					},
+					{
+						"name": "firstrow",
+						"in": "query",
+						"description": "Optional. Integer specifying the zero-based index of the first row to return, providing a means to page through the updated series. Note that it is possible to page through the all of the API's series in this manner",
+						"required": false,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "rows",
+						"in": "query",
+						"description": "Optional. Determines the maximum number of rows returned for each request, up to 10,000. Missing or invalid value results a default value of 50 as the maximum rows returned with each call.",
+						"required": false,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			}
+		},
+		"/series": {
+			"get": {
+				"description": "Series",
+				"operationId": "http://api.eia.gov/series?api_key=9a18cebe3a7a99c6f506c3a316883a21&series_id=ELEC.GEN.ALL-AK-99.A&start=2010&end=2016&out=json",
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "The API Key, required to make API requests to U.S. EIA API services.",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "series_id",
+						"in": "query",
+						"description": "Required. The series ID is a case-insensitive string consisting of letters, numbers, dashes and, periods that create a unique identifier for the EIA series.",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "start",
+						"in": "query",
+						"description": "Optional. When start is used, values will be returned beginning with the provided value. Values are accepted in the same format as dates in returned API data. Dates are formatted as yyyy, yyyyQq, yyyymm, yyyymmdd for annual, quarterly, monthly, and daily/weekly data when querying API. ",
+						"required": false,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "end",
+						"in": "query",
+						"description": "Optional.  When end is used, values will be returned ending with the provided value. Values are accepted in the same format as dates in returned API data. Dates are formatted as yyyy, yyyyQq, yyyymm, yyyymmdd for annual, quarterly, monthly, and daily/weekly data when querying API.",
+						"required": false,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			}
+		},
+		"/series/categories": {
+			"get": {
+				"description": "Series Categories",
+				"operationId": "http://api.eia.gov/series/categories?api_key=9a18cebe3a7a99c6f506c3a316883a21&series_id=ELEC.GEN.ALL-AK-99.A&out=json",
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "The API Key, required to make API requests to U.S. EIA API services.",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "series_id",
+						"in": "query",
+						"description": "Required. The series ID is a case-insensitive string consisting of letters, numbers, dashes and, periods that create a unique identifier for the EIA series.",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			}
+		}
+	}
+}
