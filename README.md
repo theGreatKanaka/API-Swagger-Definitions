@@ -1,3 +1,3 @@
 # API-Swagger-Definitions
-API Documentation using Open API Specification
-useia.json = U.S. Energy Information Administration API: requires API key
+API Documentation using Open API Specification(1) useia.json = U.S. Energy Information Administration API: requires API key. Register for an API Key here: https://www.eia.gov/opendata/register.php
+
